@@ -14,16 +14,16 @@ const std::map<std::string_view, const int> ai_flag_map = {
     {"AI_ADDRCONFIG", AI_ADDRCONFIG},
     {"AI_V4MAPPED_CFG", AI_V4MAPPED_CFG},
     {"AI_V4MAPPED", AI_V4MAPPED},
-    {"AI_UNUSABLE", AI_UNUSABLE},
-    {"AI_MASK", AI_MASK},
-    {"AI_DEFAULT", AI_DEFAULT},
+    // {"AI_UNUSABLE", AI_UNUSABLE},
+    // {"AI_MASK", AI_MASK},
+    // {"AI_DEFAULT", AI_DEFAULT},
 };
 const std::map<std::string_view, const int> ai_socktype_map = {
     {"SOCK_STREAM", SOCK_STREAM},
     {"SOCK_DGRAM", SOCK_DGRAM},
     {"SOCK_RAW", SOCK_RAW},
-    {"SOCK_SEQPACKET", SOCK_SEQPACKET},
-    {"SOCK_RDM", SOCK_RDM},
+    // {"SOCK_SEQPACKET", SOCK_SEQPACKET},
+    // {"SOCK_RDM", SOCK_RDM},
 };
 const std::map<std::string_view, const int> ai_family_map = {
     {"AF_UNSPEC", AF_UNSPEC},
