@@ -1,0 +1,30 @@
+name: getaddrinfo
+on:
+  push:
+
+jobs:
+  test:
+    name: test getaddrinfo
+    runs-on: ${{ matrix.target.host }}
+    strategy:
+      matrix:
+        target:
+          - name: osx_13
+            host: macos-13
+          - name: osx_14
+            host: macos-14
+          - name: osx_15
+            host: macos-15
+          - name: ubuntu_22
+            host: ubuntu-22.04
+          - name: ubuntu_24
+            host: ubuntu-24.04
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build
+        run:  g++ -o getaddrinfo/main getaddrinfo/main.cpp
+      - name: exec zero flag
+        run: ./getaddrinfo/main github.com 80 SOCK_STREAM AF_INET6
+      - name: exec default flag
+        run: ./getaddrinfo/main github.com 80 SOCK_STREAM AF_INET6 AI_DEFAULT
