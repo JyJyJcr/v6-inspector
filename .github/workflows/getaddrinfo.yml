@@ -9,8 +9,8 @@ jobs:
     strategy:
       matrix:
         target:
-        #   - name: osx_13
-        #     host: macos-13
+          - name: osx_13
+            host: macos-13
           - name: osx_14
             host: macos-14
           - name: osx_15
