@@ -9,8 +9,6 @@ jobs:
     strategy:
       matrix:
         target:
-          - name: osx_13
-            host: macos-13
           - name: osx_14
             host: macos-14
           - name: osx_15
@@ -23,7 +21,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: build
-        run:  g++ -o getaddrinfo/main getaddrinfo/main.cpp
+        run:  clang++ -std=c++11 -o getaddrinfo/main getaddrinfo/main.cpp
       - name: exec zero flag
         run: ./getaddrinfo/main github.com 80 SOCK_STREAM AF_INET6
       - name: exec default flag
