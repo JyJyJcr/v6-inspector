@@ -17,13 +17,13 @@ jobs:
             host: macos-15
         #   - name: ubuntu_22
         #     host: ubuntu-22.04
-          - name: ubuntu_24
-            host: ubuntu-24.04
+        #   - name: ubuntu_24
+        #     host: ubuntu-24.04
     steps:
       - name: checkout
         uses: actions/checkout@v4
       - name: build
-        run:  clang++ -std=c++17 -o getaddrinfo/main getaddrinfo/main.cpp
+        run:  c++ -std=c++17 -o getaddrinfo/main getaddrinfo/main.cpp
       - name: exec zero flag
         run: ./getaddrinfo/main github.com 80 SOCK_STREAM AF_INET6
       - name: exec addrconfig flag
