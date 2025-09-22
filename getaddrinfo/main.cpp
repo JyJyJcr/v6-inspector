@@ -73,7 +73,7 @@ int main(const int argc, const char *argv[]) {
         int status;
         if ((status = getaddrinfo(hostname.data(), port.data(), &hints, &res)) != 0) {
             fprintf(stderr, "getaddrinfo error: %s\n", gai_strerror(status));
-            return 1;
+            return 0; // not error for this program: just no results
         }
     }
     // printf("Results for %s:%s\n\n", hostname, port);
