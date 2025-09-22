@@ -51,19 +51,22 @@ int main(const int argc, const char *argv[]) {
     memset(&hints, 0, sizeof hints);
 
     for (int i = 3; i < argc; ++i) {
-        fprintf(stderr, "Flag: %s\n", argv[i]);
+        // fprintf(stderr, "Option: %s\n", argv[i]);
         auto it = ai_flag_map.find(argv[i]);
         if (it != ai_flag_map.end()) {
             fprintf(stderr, "Flag: %s (0x%x)\n", argv[i], it->second);
             hints.ai_flags |= it->second;
         } else if ((it = ai_socktype_map.find(argv[i])) != ai_socktype_map.end()) {
+            fprintf(stderr, "Socktype: %s (%d)\n", argv[i], it->second);
             hints.ai_socktype = it->second;
         } else if ((it = ai_family_map.find(argv[i])) != ai_family_map.end()) {
+            fprintf(stderr, "Family: %s (%d)\n", argv[i], it->second);
             hints.ai_family = it->second;
         } else if ((it = ai_protocol_map.find(argv[i])) != ai_protocol_map.end()) {
+            fprintf(stderr, "Protocol: %s (%d)\n", argv[i], it->second);
             hints.ai_protocol = it->second;
         } else
-            fprintf(stderr, "Unknown flag: %s\n", argv[i]);
+            fprintf(stderr, "Unknown option: %s\n", argv[i]);
     }
     addrinfo *res;
     {
