@@ -24,5 +24,7 @@ jobs:
         run:  clang++ -std=c++11 -o getaddrinfo/main getaddrinfo/main.cpp
       - name: exec zero flag
         run: ./getaddrinfo/main github.com 80 SOCK_STREAM AF_INET6
+      - name: exec addrconfig flag
+        run: ./getaddrinfo/main github.com 80 SOCK_STREAM AF_INET6 AI_ADDRCONFIG
       - name: exec default flag
-        run: ./getaddrinfo/main github.com 80 SOCK_STREAM AF_INET6 AI_DEFAULT
+        run: ./getaddrinfo/main github.com 80 SOCK_STREAM AF_INET6 AI_V4MAPPED_CFG AI_ADDRCONFIG
